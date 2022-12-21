@@ -1,0 +1,29 @@
+def Merge_Sort(arr):
+  if len(arr) > 1:
+    mid = len(arr) // 2
+    lefthalf = arr[:mid]
+    righthalf = arr[mid:]
+    Merge_Sort(lefthalf)
+    Merge_Sort(righthalf)
+    a = 0
+    b = 0
+    c = 0
+    while a < len(lefthalf) and b < len(righthalf):
+      if lefthalf[a] < righthalf[b]:
+        arr[c] = lefthalf[a]
+        a += 1
+      else:
+        arr[c] = righthalf[b]
+        b += 1
+      c+= 1
+    while a < len(lefthalf):
+      arr[c] = lefthalf[a]
+      a += 1
+      c += 1
+    while b < len(righthalf):
+      arr[c] = righthalf[b]
+      b += 1
+      c += 1
+arr = [4, 74, 65, 1, 92, 18, 99]
+Merge_Sort(arr)
+print(arr)
