@@ -1,0 +1,7 @@
+a=[7,9,1,88,23,91]
+length=len(a)
+print("data=",a)
+for i in range(length-1):
+    for j in range(length-1):
+        if a[j]>a[j+1]:
+            a[j],a[j+
