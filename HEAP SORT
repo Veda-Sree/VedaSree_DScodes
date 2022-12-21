@@ -1,0 +1,21 @@
+def Heapify(arr, n, i):
+    biggest = i 
+    l = 2 * i + 1  
+    r = 2 * i + 2 
+    if l < n and arr[i] < arr[l]:
+        biggest = l
+    if r < n and arr[biggest] < arr[r]:
+        biggest = r
+    if biggest != i:
+        arr[i], arr[biggest] = arr[biggest], arr[i] 
+        Heapify(arr, n, biggest)
+def Heap_Sort(arr):
+    n = len(arr)
+    for i in range(n, -1, -1):
+        Heapify(arr, n, i)
+    for i in range(n - 1, 0, -1):
+        arr[i], arr[0] = arr[0], arr[i]  
+        Heapify(arr, i, 0)
+arr = [43,24, 61, 37, 28, 99, 35]
+Heap_Sort(arr)
+print(arr)  
