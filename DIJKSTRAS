@@ -1,0 +1,21 @@
+import sys
+
+def Dijkstra(graph, s):
+    distances = [sys.maxsize] * len(graph)
+    distances[s] = 0
+    unvisited_nodes = set(range(len(graph)))
+    while unvisited_nodes:
+        current = min(unvisited_nodes, key=lambda x: distances[x])
+        unvisited_nodes.remove(current)
+        for neighbor, weight in enumerate(graph[current]):
+            if neighbor in unvisited_nodes and distances[neighbor] > distances[current] + weight:
+                distances[neighbor] = distances[current] + weight
+
+    return distances
+graph = [
+    [9, 8, 2],
+    [1, 6, 7],
+    [2, 5, 0]
+]
+shortest_distances = Dijkstra(graph, 0)
+print(shortest_distances)
