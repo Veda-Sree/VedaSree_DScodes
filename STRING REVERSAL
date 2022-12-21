@@ -1,0 +1,29 @@
+class Stack:
+    def __init__(self):
+        self.stack = []
+    
+    def push(self, item):
+        self.stack.append(item)
+    
+    def pop(self):
+        return self.stack.pop()
+    
+    def is_empty(self):
+        return not bool(self.stack)
+    
+    def size(self):
+        return len(self.stack)
+
+def String_Reversal(string):
+    stack = Stack()
+    
+    for c in string:
+        stack.push(c)
+    
+    reversed_string = ""
+    while not stack.is_empty():
+        reversed_string += stack.pop()
+    
+    return reversed_string
+
+print(String_Reversal("python"))  
