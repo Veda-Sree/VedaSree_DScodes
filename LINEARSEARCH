@@ -1,0 +1,9 @@
+def Linear_Search(list, a):  
+    for i in range(len(list)):  
+        if list[i] == a:
+            return i
+    return -1
+list = [0, 14, 7, 15, 9]
+a = 9
+b = Linear_Search(list, a)
+print(b)  
