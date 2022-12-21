@@ -1,0 +1,21 @@
+stack = []
+
+visited = set()
+
+def dfs(vertex):
+  visited.add(vertex)
+  stack.append(vertex)
+  neighbors = graph[vertex]
+  for neighbor in neighbors:
+    if neighbor not in visited:
+      dfs(neighbor)
+graph = {
+  "A": ["B", "C"],
+  "B": ["A", "D", "E"],
+  "C": ["A", "F"],
+  "D": ["B"],
+  "E": ["B", "F"],
+  "F": ["C", "E"]
+}
+dfs("C")
+print(stack)
